@@ -1,13 +1,11 @@
 package com.clover.httpServer.demo;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- *  ´´½¨·şÎñÆ÷£¬²¢Æô¶¯¡£
+ *  åˆ›å»ºæœåŠ¡å™¨ï¼Œå¹¶å¯åŠ¨ã€‚
  * @author Clove
  *
  */
@@ -15,19 +13,18 @@ import java.net.Socket;
 
 public class Server {
 	private ServerSocket server;
-	
 	public static void main(String[] args) {
 		Server server = new Server();
 		server.start();
 	}
 	
 	/**
-	 *Æô¶¯·½·¨ 
+	 *å¯åŠ¨æ–¹æ³• 
 	 */
 	
 	public void start() {
 		try {
-			server = new ServerSocket(8888);//¼àÌı8888Õâ¸ö¶Ë¿Ú
+			server = new ServerSocket(8888);//ç›‘å¬8888è¿™ä¸ªç«¯å£
 			this.receive();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -35,28 +32,31 @@ public class Server {
 	}
 	
 	/**
-	 * ½ÓÊÕ¿Í»§¶Ë·½·¨   ÊÊÓÃÓÚget·½·¨µÄ½ÓÊÕ£¬µ«ÊÇÈ´²»ÊÊÓÃÓÚPost·½·¨
+	 * æ¥æ”¶å®¢æˆ·ç«¯æ–¹æ³•   é€‚ç”¨äºgetæ–¹æ³•çš„æ¥æ”¶ï¼Œä½†æ˜¯å´ä¸é€‚ç”¨äºPostæ–¹æ³•
 	 */
-	private void receive() {//Ğ´³ÉprivateÖ»¹©ÄÚ²¿Ê¹ÓÃ
+	private void receive() {//å†™æˆprivateåªä¾›å†…éƒ¨ä½¿ç”¨
 		try {
 			Socket client = server.accept();
-			String msg = null;//³õÊ¼»¯£¬½ÓÊÕ¿Í»§¶ËµÄÇëÇóĞÅÏ¢
+			Request req = new Request(client.getInputStream());
 			
-			byte[] data = new byte[20480];
-			int len = client.getInputStream().read(data);
+		   //å“åº”
 			
-			String requestInfo = new String(data,0,len).trim();
+		   Response rep = new Response(client.getOutputStream());
+		   rep.println("<html><head><title>200å“åº”å®</title>");
+		   rep.println("</head><body></body></html>");
+		   rep.pushToclient(200);
+		   
+		   //System.out.println(requestInfo);
 				
-				
 			
-			System.out.println(requestInfo);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	/**
-	 * Í£Ö¹·½·¨
+	 * åœæ­¢æ–¹æ³•
 	 */
 	public void stop() {
 		
