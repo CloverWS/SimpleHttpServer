@@ -9,9 +9,12 @@ Chinese
 German
 
 Der HttpServer kann über einen festen Port auf lokale HTML-Dateien zugreifen. Stellen Sie eine Verbindung her, indem Sie "localhost: Portnummer" auf dem Client eingeben.
-Nach dem Empfang der Request-Informationen analysiert der Server, ob die aktuellen Request-Information eine Get-Methode oder eine Post-Methode ist, und erfasst die Anforderungsressource und den Anforderungsparameter gemäß der entsprechenden Anforderungsmethode.
+Nach dem Empfang der Request-Informationen analysiert der Server, ob die aktuellen Request-Information eine Get-Methode oder eine Post-Methode ist, und laut der entsprechenden Request-Methode erfasst der Server die Request-Ressource und den Request-Parameter.
 In der Response-Methode antwortet der Server den Client entsprechende Informationen, laut der verschiedenen Codes, wie z. B. 200 ist Ok, 404 ist Not Found, 500 ist Internal Server Error.
 
 
 English
 
+The HttpServer can access local html files through a fixed port. Establish a connection by entering localhost: (port number) on the client.
+After receiving the request information, the server analyzes whether the current request information is a get method or a post method, and according to the corresponding request method acquires the server the request resource and the request parameter.
+In the response method, the server responds the client according to different codes, such as 200 is Ok, 404 is Not Found, 500 is Internal Server Error.
