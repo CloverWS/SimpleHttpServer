@@ -17,4 +17,4 @@ English
 
 The HttpServer can access local HTML files through a fixed port. Establish a connection by entering localhost: (port number) on the client.
 After receiving the request information, the server analyzes whether the current request information is a GET method or a POST method, and according to the corresponding request method acquires the server the request resource and the request parameter.
-In the response method, the server respond the client according to different codes, such as 200 is Ok, 404 is Not Found, 500 is Internal Server Error.
+In the response method, the server respond to the client according to different codes, such as 200 is Ok, 404 is Not Found, 500 is Internal Server Error.
