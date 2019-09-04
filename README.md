@@ -1,5 +1,5 @@
 # SimpleHttpServer
-Autor : By Clover
+By Clover
 
 
 ## Chinese
